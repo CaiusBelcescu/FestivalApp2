@@ -50,4 +50,32 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.show();
     }
+    public void start2(Stage primaryStage) throws Exception {
+
+        //UserService.loadUsersFromFile();
+
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Register.fxml"));
+
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("FestivalWord");
+        primaryStage.setScene(scene);
+        //primaryStage.getIcons().add(new Image("rellow.jpg"));
+        primaryStage.initStyle(StageStyle.DECORATED.UNDECORATED);
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event){
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            public void handle(MouseEvent event){
+                primaryStage.setX(event.getScreenX() - xOffset);
+                primaryStage.setY(event.getScreenY() - yOffset);
+            }
+        });
+        primaryStage.setResizable(false);
+        primaryStage.show();
+    }
 }

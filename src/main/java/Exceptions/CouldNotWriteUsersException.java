@@ -1,4 +1,4 @@
 package Exceptions;
 
-public class CouldNotWriteUsersException {
+public class CouldNotWriteUsersException extends RuntimeException {
 }

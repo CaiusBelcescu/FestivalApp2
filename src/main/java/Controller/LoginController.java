@@ -37,6 +37,7 @@ public class LoginController implements Initializable {
         stage1.setResizable(false);
         stage1.show();
     }
+    //jjj
     @FXML
     private void LoginButtonAction(){
 

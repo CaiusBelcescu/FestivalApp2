@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,26 +26,29 @@ public class LoginController implements Initializable {
         System.exit(0);
     }
 
+    @FXML
+    private void RegisterButtonAction() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/Register.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(),600,622);
+        Stage stage1 = new Stage();
+        stage1.setTitle("Register");
+        stage1.setScene(scene);
+        stage1.setResizable(false);
+        stage1.show();
+    }
+    @FXML
+    private void LoginButtonAction(){
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loginMessageLabel.setText("Wellcome");
     }
 
-    public void loginButtonOnAction(ActionEvent event){
-        loginMessageLabel.setText("You try to login");
-    }
+//    public void loginButtonOnAction(ActionEvent event){
+//        loginMessageLabel.setText("You try to login");
+//    }
 
-    public void createForm(){
-        try{
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Register.fxml"));
-
-            Stage scene2 = new Stage();
-            scene2.initStyle(StageStyle.UNDECORATED);
-            scene2.setScene(new Scene(root,600,622));
-            scene2.show();
-        }catch (Exception e){
-            e.printStackTrace();
-            e.getCause();
-        }
-    }
 }

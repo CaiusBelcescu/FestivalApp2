@@ -27,7 +27,7 @@
             <PasswordField fx:id="passwordField" alignment="CENTER" layoutX="94.0" layoutY="229.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #556B2F; -fx-border-width: 0px 0px 2px 0px;" />
             <FontAwesomeIconView fill="DARKOLIVEGREEN" glyphName="USER" layoutX="65.0" layoutY="172.0" size="30" />
             <FontAwesomeIconView fill="DARKOLIVEGREEN" glyphName="KEY" layoutX="62.0" layoutY="256.0" size="30" />
-            <Button fx:id="loginButton" layoutX="113.0" layoutY="325.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #556B2F;" text="Login" textFill="#fffefe" />
+            <Button fx:id="loginButton" layoutX="113.0" layoutY="325.0" mnemonicParsing="false" onAction="#LoginButtonAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #556B2F;" text="Login" textFill="#fffefe" />
             <FontAwesomeIconView fill="DARKOLIVEGREEN" glyphName="USERS" layoutX="154.0" layoutY="61.0" size="40" />
             <Text fill="DARKOLIVEGREEN" layoutX="113.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Festival Login">
                <font>
@@ -39,7 +39,7 @@
                   <FontAwesomeIconView fill="DARKOLIVEGREEN" glyphName="CLOSE" size="20" />
                </graphic>
             </Button>
-            <Button fx:id="registerButton" layoutX="113.0" layoutY="396.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #556B2F;" text="Register" textFill="WHITE" />
+            <Button fx:id="registerButton" layoutX="113.0" layoutY="396.0" mnemonicParsing="false" onAction="#RegisterButtonAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #556B2F;" text="Register" textFill="WHITE" />
             <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="104.0" layoutY="277.0" prefHeight="21.0" prefWidth="144.0" textFill="DARKOLIVEGREEN" />
          </children>
       </AnchorPane>

@@ -10,7 +10,7 @@ import javafx.stage.StageStyle;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-//import services.UserService;
+import Services.UserService;
 
 public class Main extends Application {
 
@@ -24,7 +24,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        //UserService.loadUsersFromFile();
+        UserService.loadUsersFromFile();
 
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("Login.fxml"));
 

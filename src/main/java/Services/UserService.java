@@ -1,3 +1,4 @@
+package Services;
 
 import Exceptions.CouldNotWriteUsersException;
 import Exceptions.UsernameAlreadyExistsException;

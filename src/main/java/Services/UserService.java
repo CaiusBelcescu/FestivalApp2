@@ -81,4 +81,28 @@ public class UserService {
     }
 
 
+    public static boolean checkIfPassAndUserAreValid(String username,String password) throws UsernameAlreadyExistsException {
+        String encodedPass = encodePassword(username,password);
+        for (User user : users) {
+            if (username.equals(user.getUsername()) && encodedPass.equals(user.getPassword()))
+                return true;
+            //throw new UsernameAlreadyExistsException(username);
+        }
+        return false;
+    }
+
+    public static String checkFolkOrCreator(String username,String password){
+
+        String encodedPass = encodePassword(username,password);
+        for(User user : users){
+            if (username.equals(user.getUsername()) && encodedPass.equals(user.getPassword())){
+                return user.getRole();
+
+            }
+
+        }
+
+        return "not";
+
+    }
 }

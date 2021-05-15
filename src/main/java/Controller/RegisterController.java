@@ -3,13 +3,13 @@ package Controller;
 import Exceptions.UsernameAlreadyExistsException;
 import Services.UserService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class RegisterController {
+
+    @FXML
+    private Label lableRegist;
 
     @FXML
     private TextField Email;
@@ -43,12 +43,11 @@ public class RegisterController {
     void RegistAction() {
         try {
             UserService.addUser(Email.getText(), Password.getText(), (String)role.getValue());
-            //registrationMessage.setText("Account created successfully!");
+            Stage stage = (Stage) RegistButton.getScene().getWindow();
+            stage.close();
         } catch (UsernameAlreadyExistsException e) {
-            //registrationMessage.setText(e.getMessage());
+            lableRegist.setText(e.getMessage());
         }
-        Stage stage = (Stage) RegistButton.getScene().getWindow();
-        stage.close();
     }
 
 }

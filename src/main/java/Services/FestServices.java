@@ -1,13 +1,13 @@
 package Services;
-
+//
 //import com.fasterxml.jackson.core.type.TypeReference;
 //import com.fasterxml.jackson.databind.ObjectMapper;
-//import exceptions.CouldNotWriteAnnouncementException;
-//import model.Announcement;
+////import Exceptions.CouldNotWriteAnnouncementException;
+////import Model.Announcement;
 //import org.apache.commons.io.FileUtils;
-//import exceptions.CouldNotWriteUsersException;
-//import exceptions.UsernameAlreadyExistsException;
-//import model.User;
+////import exceptions.CouldNotWriteUsersException;
+////import exceptions.UsernameAlreadyExistsException;
+////import model.User;
 //
 //import java.io.IOException;
 //import java.nio.charset.StandardCharsets;
@@ -26,7 +26,7 @@ package Services;
 //    public static void loadAnnouncementsFromFile() throws IOException {
 //
 //        if (!Files.exists(ANNOUNCEMENTS_PATH)) {
-//            FileUtils.copyURLToFile(Services.AnnouncementService.class.getClassLoader().getResource("announcement.json"), ANNOUNCEMENTS_PATH.toFile());
+//            FileUtils.copyURLToFile(services.AnnouncementService.class.getClassLoader().getResource("announcement.json"), ANNOUNCEMENTS_PATH.toFile());
 //        }
 //
 //        ObjectMapper objectMapper = new ObjectMapper();

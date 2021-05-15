@@ -32,7 +32,6 @@ public class Main extends Application {
 
         primaryStage.setTitle("FestivalWord");
         primaryStage.setScene(scene);
-        //primaryStage.getIcons().add(new Image("rellow.jpg"));
         primaryStage.initStyle(StageStyle.DECORATED.UNDECORATED);
         root.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override

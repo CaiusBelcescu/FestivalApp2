@@ -10,4 +10,11 @@
     -fx-border-radius: 50;
     -fx-border-color: #fff;
 }
-s
+
+.selected{
+    -fx-background-color: #F3F3F3;
+}
+
+.mouse-moved:hover{
+    -fx-background-color: #E4E4E4;
+}

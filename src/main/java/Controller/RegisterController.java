@@ -37,15 +37,7 @@ public class RegisterController {
         stage.close();
     }
 
-    @FXML
-    void EmailAction() {
 
-    }
-
-    @FXML
-    void PasswordAction() {
-
-    }
 
     @FXML
     void RegistAction() {

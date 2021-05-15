@@ -86,7 +86,7 @@ public class UserService {
         for (User user : users) {
             if (username.equals(user.getUsername()) && encodedPass.equals(user.getPassword()))
                 return true;
-            //throw new UsernameAlreadyExistsException(username);
+            throw new UsernameAlreadyExistsException(username);
         }
         return false;
     }
@@ -104,5 +104,17 @@ public class UserService {
 
         return "not";
 
+    }
+
+    public static boolean check(String username,String password)  {
+
+        String encodedPass = encodePassword(username,password);
+
+        for (User user : users) {
+            if (username.equals(user.getUsername()) && encodedPass.equals(user.getPassword()))
+                return true;
+
+        }
+        return false;
     }
 }

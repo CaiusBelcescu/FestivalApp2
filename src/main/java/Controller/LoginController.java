@@ -55,51 +55,42 @@ public class LoginController implements Initializable {
     }
     //jjj
     @FXML
-    private void LoginButtonAction()  throws IOException, UsernameAlreadyExistsException {
-        if (!UserService.checkIfPassAndUserAreValid(userField.getText(),passwordField.getText())){
-            loginMessageLabel.setText("User or password are incorrect");
-        }
-//        else{
-//            String ROLE = UserService.checkFolkOrCreator(userField.getText(),passwordField.getText());
-//
-//            FXMLLoader fxmlLoader = new FXMLLoader();
-//            if(ROLE.equals("Owner")){
-//
-//
-//                fxmlLoader.setLocation(getClass().getResource("/owners_test.fxml"));
-//            }
-//            else if(ROLE.equals("Client")){
-//
-//                fxmlLoader.setLocation(getClass().getResource("/client.fxml"));
-//
-//            }
-//            else{
-//                fxmlLoader.setLocation(getClass().getResource("/owners_test.fxml"));
-//
-//            }
-//
-//            // Scene scene = new Scene(fxmlLoader.load());
-//            Stage stage1 = new Stage();
-//            stage1.setTitle("RellowOwner");
-//            stage1.setScene(new Scene(fxmlLoader.load(), 1400, 900));
-//
-//
-//            //stage1.setScene();
-//
-//            //stage1.getIcons().add(new Image("rellow.jpg"));
-//            stage1.show();
-//            Stage stage = (Stage) loginButton.getScene().getWindow();
-//            stage.close();
-//
-    }
+    void LoginButtonAction(ActionEvent event) throws IOException {
 
+        if(UserService.check(userField.getText(), passwordField.getText()))
+        {
+            FXMLLoader fxmlLoader1 = new FXMLLoader();
+            String role=UserService.checkFolkOrCreator(userField.getText(),passwordField.getText());
+            if(role.equals("Festival Folk")) {
+                fxmlLoader1.setLocation(getClass().getResource("/FestivalFolk.fxml"));
+            }
+            else if(role.equals("Festival Creator"))
+            {
+                fxmlLoader1.setLocation(getClass().getResource("/FestivalCreator.fxml"));
+            }
+
+            Scene scene = new Scene((Parent) fxmlLoader1.load(),1635,933);
+            Stage stage1 = new Stage();
+
+
+            stage1.setScene(scene);
+
+            stage1.show();
+
+            Stage stage = (Stage) loginButton.getScene().getWindow();
+            stage.close();
+
+        }
+        else{
+            loginMessageLabel.setText("E-mail or password are incorrect");
+        }
+
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loginMessageLabel.setText("Wellcome");
     }
 
-//    public void loginButtonOnAction(ActionEvent event){
-//        loginMessageLabel.setText("You try to login");
-//    }
+
 
 }

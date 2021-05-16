@@ -49,7 +49,7 @@ public class CreatorController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("/Festival.fxml"));
                 HBox cardBox = fxmlLoader.load();
                 FestivalController festivalController = fxmlLoader.getController();
-                //festivalController.setData(recentlyAdded.get(i));
+                festivalController.setData(recentlyAdded.get(i));
                 cardLayout.getChildren().add(cardBox);
             }
         }catch (IOException e){
@@ -66,16 +66,16 @@ public class CreatorController implements Initializable {
         ls.add(festival);
 
         Festival_Type2 festival1 = new Festival_Type2();
-        festival.setName("Neversea");
-        festival.setImageSrc("/img/Neversea.jpg");
-        festival.setFestLocation("CONSTANTA\nROMANIA");
-        ls.add(festival);
+        festival1.setName("Neversea");
+        festival1.setImageSrc("/img/Neversea.jpg");
+        festival1.setFestLocation("CONSTANTA\nROMANIA");
+        ls.add(festival1);
 
         Festival_Type2 festival2 = new Festival_Type2();
-        festival.setName("Electric Castle");
-        festival.setImageSrc("/img/Electric.jpg");
-        festival.setFestLocation("CLUJ-NAPOCA\nROMANIA");
-        ls.add(festival);
+        festival2.setName("Electric Castle");
+        festival2.setImageSrc("/img/Electric.jpg");
+        festival2.setFestLocation("CLUJ-NAPOCA\nROMANIA");
+        ls.add(festival2);
 
         return ls;
     }

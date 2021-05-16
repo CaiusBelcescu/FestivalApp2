@@ -1,5 +1,7 @@
 package Controller;
 
+import Exceptions.UsernameAlreadyExistsException;
+import Services.FestServices;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -25,8 +27,9 @@ public class DescriptionController {
     private Button cancelFest;
 
     @FXML
-    void addFestButton() {
-
+    void addFestButton() throws UsernameAlreadyExistsException {
+        FestServices.addUser(FestName.getText(), Prices.getText(), Place.getText(),Description.getText());
+        
     }
 
     @FXML

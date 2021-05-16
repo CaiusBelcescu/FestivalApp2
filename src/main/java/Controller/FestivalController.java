@@ -25,9 +25,9 @@ public class FestivalController {
     private String [] colors = {"B9E5FF", "BDB2FE", "FB9AA8", "FF5856"};
 
     public void setData(Festival_Type festival){
-        Image image = new Image(getClass().getResourceAsStream(festival.getImageSrc()));
+        //Image image = new Image(getClass().getResourceAsStream(festival.getImageSrc()));
 
-        festivalImage.setImage(image);
+        //festivalImage.setImage(image);
 
         FestivalName.setText(festival.getName());
 

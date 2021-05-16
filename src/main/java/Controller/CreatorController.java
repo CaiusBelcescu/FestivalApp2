@@ -4,6 +4,8 @@ import Model.Festival_Type;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
@@ -13,8 +15,27 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CreatorController implements Initializable {
+
+    @FXML
+    private BorderPane CreatorPane;
+
+    @FXML
+    private BorderPane Pane2;
+
+    @FXML
+    private Button BrowseAction;
+
+    @FXML
+    private Button ProfileAction;
+
+    @FXML
+    private Button AddAction;
+
     @FXML
     private HBox cardLayout;
+
+//    @FXML
+//    private HBox cardLayout;
 
     private List<Festival_Type> recentlyAdded;
 
@@ -24,7 +45,7 @@ public class CreatorController implements Initializable {
         try{
             for(int i=0; i<recentlyAdded.size(); i++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("Festival.fxml"));
+                fxmlLoader.setLocation(getClass().getResource("/Festival.fxml"));
                 HBox cardBox = fxmlLoader.load();
                 FestivalController festivalController = fxmlLoader.getController();
                 festivalController.setData(recentlyAdded.get(i));
@@ -56,5 +77,26 @@ public class CreatorController implements Initializable {
         ls.add(festival);
 
         return ls;
+    }
+
+    @FXML
+    void AddButton() throws IOException {
+        FXMLLoader x=new FXMLLoader();
+        x.setLocation(getClass().getResource("/FestivalDetails.fxml"));
+        BorderPane aux=x.load();
+        Pane2.setCenter(aux);
+    }
+
+    @FXML
+    void BrowseButton() {
+
+    }
+
+    @FXML
+    void ProfileButton() throws IOException {
+        FXMLLoader x=new FXMLLoader();
+        x.setLocation(getClass().getResource("/Profile.fxml"));
+        BorderPane aux=x.load();
+        Pane2.setCenter(aux);
     }
 }

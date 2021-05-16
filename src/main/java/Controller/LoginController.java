@@ -36,6 +36,9 @@ public class LoginController implements Initializable {
     @FXML
     private Label loginMessageLabel;
 
+
+    public static String email;
+
     @FXML
     private void exit(ActionEvent event)
     {
@@ -59,6 +62,7 @@ public class LoginController implements Initializable {
 
         if(UserService.check(userField.getText(), passwordField.getText()))
         {
+            email=userField.getText();
             FXMLLoader fxmlLoader1 = new FXMLLoader();
             String role=UserService.checkFolkOrCreator(userField.getText(),passwordField.getText());
             if(role.equals("Festival Folk")) {

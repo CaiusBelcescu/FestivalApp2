@@ -1,53 +1,74 @@
 package Services;
 
-//import com.fasterxml.jackson.core.type.TypeReference;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-////import Exceptions.CouldNotWriteAnnouncementException;
-////import Model.Announcement;
-//import org.apache.commons.io.FileUtils;
-////import exceptions.CouldNotWriteUsersException;
-////import exceptions.UsernameAlreadyExistsException;
-////import model.User;
-//
-//import java.io.IOException;
-//import java.nio.charset.StandardCharsets;
-//import java.nio.file.Files;
-//import java.nio.file.Path;
-//import java.security.MessageDigest;
-//import java.security.NoSuchAlgorithmException;
-//import java.util.List;
-//import java.util.Objects;
-//
-//public class FestServices {
-//
-//    public static List<Announcement> announcements;
-//    private static final Path ANNOUNCEMENTS_PATH = FileSystemService.getPathToFile("config", "announcement.json");
-//
-//    public static void loadAnnouncementsFromFile() throws IOException {
-//
-//        if (!Files.exists(ANNOUNCEMENTS_PATH)) {
-//            FileUtils.copyURLToFile(services.AnnouncementService.class.getClassLoader().getResource("announcement.json"), ANNOUNCEMENTS_PATH.toFile());
+import Exceptions.CouldNotWriteUsersException;
+import Exceptions.UsernameAlreadyExistsException;
+import Model.Festival_Type;
+import Model.User;
+import Services.FileSystemService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
+//import org.loose.fis.registration.example.exceptions.CouldNotWriteUsersException;
+//import org.loose.fis.registration.example.exceptions.UsernameAlreadyExistsException;
+//import org.loose.fis.registration.example.model.User;
+
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Objects;
+
+public class FestServices {
+
+    private static List<Festival_Type> festivals;
+    private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "descriptions.json");
+
+    public static void loadUsersFromFile() throws IOException {
+
+        if (!Files.exists(USERS_PATH)) {
+            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("description.json"), USERS_PATH.toFile());
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        festivals = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<Festival_Type>>() {
+        });
+    }
+
+    public static void addUser(String name, String place, String prices,String description) throws UsernameAlreadyExistsException {
+       // checkUserDoesNotAlreadyExist(name);
+        festivals.add(new Festival_Type(name, place, prices,description));
+        persistUsers();
+    }
+
+//    private static void checkUserDoesNotAlreadyExist(String name) throws UsernameAlreadyExistsException {
+//        for (User user : festivals) {
+//            if (Objects.equals(name, user.getUsername()))
+//                throw new UsernameAlreadyExistsException(name);
 //        }
-//
-//        ObjectMapper objectMapper = new ObjectMapper();
-//
-//        announcements = objectMapper.readValue(ANNOUNCEMENTS_PATH.toFile(), new TypeReference<List<Announcement>>() {
-//        });
-//
 //    }
-//
-//    public static void addAnnouncement(String b, String c, String e,String m,String hp, String yf, String d,String p,String email)  {
-//
-//        announcements.add(new Announcement(b, c, e,m,hp,yf,d,p,email));
-//        persistAnnouncement();
-//    }
-//
-//    private static void persistAnnouncement() {
-//        try {
-//            ObjectMapper objectMapper = new ObjectMapper();
-//            objectMapper.writerWithDefaultPrettyPrinter().writeValue(ANNOUNCEMENTS_PATH.toFile(), announcements);
-//        } catch (IOException e) {
-//            throw new CouldNotWriteAnnouncementException();
-//        }
-//    }
-//}
+
+    private static void persistUsers() {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(USERS_PATH.toFile(), festivals);
+        } catch (IOException e) {
+            throw new CouldNotWriteUsersException();
+        }
+    }
+
+
+    private static MessageDigest getMessageDigest() {
+        MessageDigest md;
+        try {
+            md = MessageDigest.getInstance("SHA-512");
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException("SHA-512 does not exist!");
+        }
+        return md;
+    }
+
+}

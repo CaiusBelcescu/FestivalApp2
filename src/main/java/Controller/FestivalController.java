@@ -13,8 +13,6 @@ public class FestivalController {
     @FXML
     private HBox box;
 
-    @FXML
-    private ImageView festivalImage;
 
     @FXML
     private Label FestivalName;
@@ -31,7 +29,7 @@ public class FestivalController {
 
         FestivalName.setText(festival.getName());
 
-        FestivalLocation.setText(festival.getFestLocation());
+        FestivalLocation.setText(festival.getFestplace());
 
         box.setStyle("-fx-background-color: " + String.valueOf(Color.web(colors[(int)(Math.random()*colors.length)])));
 

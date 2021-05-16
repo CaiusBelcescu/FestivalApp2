@@ -1,10 +1,11 @@
 package Controller;
 
-import Model.Festival_Type;
+import Model.Festival_Type2;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 
@@ -37,7 +38,7 @@ public class CreatorController implements Initializable {
 //    @FXML
 //    private HBox cardLayout;
 
-    private List<Festival_Type> recentlyAdded;
+    private List<Festival_Type2> recentlyAdded;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,7 +49,7 @@ public class CreatorController implements Initializable {
                 fxmlLoader.setLocation(getClass().getResource("/Festival.fxml"));
                 HBox cardBox = fxmlLoader.load();
                 FestivalController festivalController = fxmlLoader.getController();
-                festivalController.setData(recentlyAdded.get(i));
+                //festivalController.setData(recentlyAdded.get(i));
                 cardLayout.getChildren().add(cardBox);
             }
         }catch (IOException e){
@@ -56,21 +57,21 @@ public class CreatorController implements Initializable {
         }
     }
 
-    private List<Festival_Type> recentlyAdded() {
-        List<Festival_Type> ls = new ArrayList<>();
-        Festival_Type festival = new Festival_Type();
+    private List<Festival_Type2> recentlyAdded() {
+        List<Festival_Type2> ls = new ArrayList<>();
+        Festival_Type2 festival = new Festival_Type2();
         festival.setName("Untold");
         festival.setImageSrc("/img/untold-wallpaper-4.jpg");
         festival.setFestLocation("CLUJ-NAPOCA\nROMANIA");
         ls.add(festival);
 
-        Festival_Type festival1 = new Festival_Type();
+        Festival_Type2 festival1 = new Festival_Type2();
         festival.setName("Neversea");
         festival.setImageSrc("/img/Neversea.jpg");
         festival.setFestLocation("CONSTANTA\nROMANIA");
         ls.add(festival);
 
-        Festival_Type festival2 = new Festival_Type();
+        Festival_Type2 festival2 = new Festival_Type2();
         festival.setName("Electric Castle");
         festival.setImageSrc("/img/Electric.jpg");
         festival.setFestLocation("CLUJ-NAPOCA\nROMANIA");
@@ -83,7 +84,7 @@ public class CreatorController implements Initializable {
     void AddButton() throws IOException {
         FXMLLoader x=new FXMLLoader();
         x.setLocation(getClass().getResource("/FestivalDetails.fxml"));
-        BorderPane aux=x.load();
+        AnchorPane aux=x.load();
         Pane2.setCenter(aux);
     }
 

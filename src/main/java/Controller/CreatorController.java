@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Festival_Type2;
+import Model.Festival_Type;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -39,6 +40,7 @@ public class CreatorController implements Initializable {
 //    private HBox cardLayout;
 
     private List<Festival_Type2> recentlyAdded;
+    private List<Festival_Type> Desc;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -100,32 +100,32 @@ public class CreatorController implements Initializable {
 
     @FXML
     void BrowseButton() throws IOException {
-        for(Festival_Type festival : FestServices.festivals) {
-
-            //if(festival.getAddress().contains(searchBar.getText())){
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("/Browseee.fxml"));
-
-
-            try {
-
-
-                AnchorPane pane = fxmlLoader.load();
-
-                BrowseeController fs = new BrowseeController();
-                fs.setdata();
-
-                Scrolv.getChildren().add(pane);
-
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        //}
-
-
-        }
+//        for(Festival_Type festival : FestServices.festivals) {
+//
+//            //if(festival.getAddress().contains(searchBar.getText())){
+//            FXMLLoader fxmlLoader = new FXMLLoader();
+//            fxmlLoader.setLocation(getClass().getResource("/Browseee.fxml"));
+//
+//
+//            try {
+//
+//
+//                AnchorPane pane = fxmlLoader.load();
+//
+//                BrowseeController fs = new BrowseeController();
+//                fs.setdata();
+//
+//                Scrolv.getChildren().add(pane);
+//
+//
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//
+//        //}
+//
+//
+//        }
     }
 
     @FXML

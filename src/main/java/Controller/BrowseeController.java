@@ -20,4 +20,11 @@ public class BrowseeController {
     void setdata(){
 
     }
+
+    public void setdata(String name, String festprice, String festplace, String festdescription) {
+        Namelb.setText(name);
+        Pricelb.setText(festprice);
+        Placelb.setText(festplace);
+        Descriptionlb.setText(festdescription);
+    }
 }

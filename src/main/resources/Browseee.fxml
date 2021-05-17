@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.BrowseeController">
+   <children>
+      <Label layoutX="88.0" layoutY="77.0" prefHeight="39.0" prefWidth="87.0" text="Name:" />
+      <Label fx:id="Namelb" layoutX="135.0" layoutY="77.0" prefHeight="39.0" prefWidth="188.0" />
+      <Label layoutX="88.0" layoutY="137.0" prefHeight="39.0" prefWidth="87.0" text="Place:" />
+      <Label layoutX="88.0" layoutY="212.0" prefHeight="39.0" prefWidth="87.0" text="Prices:" />
+      <Label layoutX="88.0" layoutY="324.0" prefHeight="39.0" prefWidth="87.0" text="Description:" />
+      <Label fx:id="Pricelb" alignment="TOP_LEFT" layoutX="143.0" layoutY="217.0" prefHeight="107.0" prefWidth="323.0" />
+      <Label fx:id="Placelb" layoutX="135.0" layoutY="137.0" prefHeight="39.0" prefWidth="188.0" />
+      <Label fx:id="Descriptionlb" alignment="TOP_LEFT" layoutX="189.0" layoutY="324.0" prefHeight="151.0" prefWidth="314.0" />
+   </children>
+</AnchorPane>

@@ -20,7 +20,7 @@ import java.util.Objects;
 
 public class FestServices {
 
-    private static List<Festival_Type> festivals;
+    public static List<Festival_Type> festivals;
     private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "descriptions.json");
 
     public static void loadUsersFromFile() throws IOException {

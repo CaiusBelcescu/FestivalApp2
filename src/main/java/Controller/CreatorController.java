@@ -2,13 +2,16 @@ package Controller;
 
 import Model.Festival_Type2;
 import Model.Festival_Type;
+import Services.FestServices;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,7 +22,12 @@ import java.util.ResourceBundle;
 public class CreatorController implements Initializable {
 
     @FXML
+    private ScrollPane Scroll;
+    @FXML
     private BorderPane CreatorPane;
+
+    @FXML
+    private VBox Scrolv;
 
     @FXML
     private BorderPane Pane2;
@@ -91,8 +99,33 @@ public class CreatorController implements Initializable {
     }
 
     @FXML
-    void BrowseButton() {
+    void BrowseButton() throws IOException {
+        for(Festival_Type festival : FestServices.festivals) {
 
+            //if(festival.getAddress().contains(searchBar.getText())){
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("/Browseee.fxml"));
+
+
+            try {
+
+
+                AnchorPane pane = fxmlLoader.load();
+
+                BrowseeController fs = new BrowseeController();
+                fs.setdata();
+
+                Scrolv.getChildren().add(pane);
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        //}
+
+
+        }
     }
 
     @FXML

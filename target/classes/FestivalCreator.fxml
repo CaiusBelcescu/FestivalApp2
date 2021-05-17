@@ -110,7 +110,14 @@
                   <HBox fx:id="cardLayout" prefHeight="231.0" prefWidth="1554.0" styleClass="transparent" stylesheets="@../faculta/Sef/FestivalApp/festivalapp/target/classes/styles.css" />
                </content>
             </ScrollPane>
-            <BorderPane fx:id="Pane2" prefHeight="537.0" prefWidth="1025.0" />
+            <BorderPane fx:id="Pane2" prefHeight="537.0" prefWidth="1025.0">
+               <center>
+                  <ScrollPane fx:id="Scroll" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <VBox fx:id="Vbox" prefHeight="522.0" prefWidth="995.0" />
+                     </content>
+                  </ScrollPane>
+               </center></BorderPane>
          </children>
          <opaqueInsets>
             <Insets />

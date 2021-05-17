@@ -8,8 +8,8 @@
    <left>
       <AnchorPane prefHeight="489.0" prefWidth="673.0" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="99.0" layoutY="115.0" prefHeight="55.0" prefWidth="182.0" text="E-mail" />
-            <Label fx:id="labelEmail" layoutX="369.0" layoutY="115.0" prefHeight="55.0" prefWidth="230.0" />
+            <Label fx:id="labelEmail" layoutX="177.0" layoutY="115.0" prefHeight="21.0" prefWidth="166.0" />
+            <Label layoutX="84.0" layoutY="115.0" text="E-mail" />
          </children>
       </AnchorPane>
    </left>
